@@ -1,8 +1,8 @@
-function config()
+function api_config()
     return {
-        APIKEY: "",
-        ACTIVEUSER: invalid,
-        SERVERURL: ""
+        APIKEY: get_user_setting("token"),
+        ACTIVEUSER: get_setting("active_user"),
+        SERVERURL: get_setting("server")
     }
 end function
 
