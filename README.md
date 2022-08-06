@@ -1,0 +1,1 @@
+This library is meant to help clients written in Brightscript interact with Jellyfin's REST API.
