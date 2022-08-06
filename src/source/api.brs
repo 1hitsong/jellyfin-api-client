@@ -1,4 +1,4 @@
-function api_config()
+function config()
     return {
         APIKEY: get_user_setting("token"),
         ACTIVEUSER: get_setting("active_user"),

@@ -6,7 +6,7 @@
   "files": [
     "src/source/api.brs"
   ],
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "This library is meant to help clients written in Brightscript interact with Jellyfin's REST API.",
   "main": "index.js",
   "scripts": {
