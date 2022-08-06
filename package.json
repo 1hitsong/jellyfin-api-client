@@ -3,7 +3,7 @@
     "rootDir": "src"
   },
   "name": "jellyfin-api-bs-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This library is meant to help clients written in Brightscript interact with Jellyfin's REST API.",
   "main": "index.js",
   "scripts": {
