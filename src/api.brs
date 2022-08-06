@@ -1,5 +1,10 @@
-APIKEY = ""
-ACTIVEUSER = invalid
+function config()
+    return {
+        APIKEY: "",
+        ACTIVEUSER: invalid,
+        SERVERURL: ""
+    }
+end function
 
 function API()
     instance = {}
@@ -826,7 +831,7 @@ function jellyscrubActions()
 
     ' Get jelly scrub plugin data
     instance.get = function(id as string)
-        return _buildURL(Substitute("/Trickplay/{0}/320/GetBIF?apikey={1}", id, APIKEY))
+        return _buildURL(Substitute("/Trickplay/{0}/320/GetBIF?apikey={1}", id, config().APIKEY))
     end function
 
     return instance
@@ -2535,7 +2540,7 @@ function _buildParams(params = {} as object) as string
 end function
 
 function _get_url()
-    base = get_setting("server")
+    base = config().SERVERURL
 
     ' Remove trailing slash
     if base.right(1) = "/"
@@ -2566,19 +2571,19 @@ function _authorize_request(request)
     auth = auth + ", Device=" + Chr(34) + device + " (" + friendly + ")" + Chr(34)
 
     device_id = devinfo.getChannelClientID()
-    if ACTIVEUSER = invalid or ACTIVEUSER = ""
+    if config().ACTIVEUSER = invalid or config().ACTIVEUSER = ""
         device_id = devinfo.GetRandomUUID()
     end if
     auth = auth + ", DeviceId=" + Chr(34) + device_id + Chr(34)
 
     auth = auth + ", Version=" + Chr(34) + appinfo.GetVersion() + Chr(34)
 
-    user = ACTIVEUSER
+    user = config().ACTIVEUSER
     if user <> invalid and user <> ""
         auth = auth + ", UserId=" + Chr(34) + user + Chr(34)
     end if
 
-    token = APIKEY
+    token = config().APIKEY
     if token <> invalid and token <> ""
         auth = auth + ", Token=" + Chr(34) + token + Chr(34)
     end if
