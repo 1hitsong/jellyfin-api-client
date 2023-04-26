@@ -2429,7 +2429,7 @@ function videosActions()
 
     ' Gets subtitles in a specified format.
     instance.getsubtitles = function(routeitemid as string, routemediasourceid as string, routeindex as integer, routestartpositionticks as integer, routeformat as string, params = {} as object)
-        return _buildURL(Substitute("/videos/{0}/{1}/subtitles/{2}/stream.{3}" + routeformat, routeitemid, routemediasourceid, routeindex, routeformat), params)
+        return _buildURL(Substitute("/videos/{0}/{1}/subtitles/{2}/{3}/stream.{4}" + routeformat, routeitemid, routemediasourceid, routeindex, routestartpositionticks, routeformat), params)
     end function
 
     return instance
