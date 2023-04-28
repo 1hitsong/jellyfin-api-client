@@ -828,7 +828,7 @@ end function
 
 function jellyscrubActions()
     instance = {}
-    
+
     ' Get jelly scrub plugin data
     instance.getManifest = function(id as string)
         return _buildURL(Substitute("/Trickplay/{0}/GetManifest?apikey={1}", id, api_config().APIKEY))
