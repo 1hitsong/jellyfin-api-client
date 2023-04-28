@@ -826,12 +826,16 @@ function introskipperActions()
     return instance
 end function
 
-function jellyscrubActions()
+function api_jellyscrubActions()
     instance = {}
-
+    
     ' Get jelly scrub plugin data
-    instance.get = function(id as string)
-        return _buildURL(Substitute("/Trickplay/{0}/320/GetBIF?apikey={1}", id, config().APIKEY))
+    instance.getManifest = function(id as string)
+        return _api_buildURL(Substitute("/Trickplay/{0}/GetManifest?apikey={1}", id, api_config().APIKEY))
+    end function
+
+    instance.getBif = function(id as string, width as string)
+        return _api_buildURL(Substitute("/Trickplay/{0}/{1}/GetBIF?apikey={2}", id, width, api_config().APIKEY))
     end function
 
     return instance
