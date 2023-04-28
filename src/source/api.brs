@@ -832,7 +832,7 @@ function jellyscrubActions()
     ' Get jelly scrub plugin data
     instance.getmanifest = function(id as string)
         req = _APIRequest(Substitute("/Trickplay/{0}/GetManifest?apikey={1}", id, api_config().APIKEY))
-        return = _getJson(req)
+        return _getJson(req)
     end function
 
     instance.getbifurl = function(id as string, width as string)
